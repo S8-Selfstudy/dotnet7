@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: "./dotnet7"
+        working-directory: "./SuperHeroAPI"
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: "./dotnet7.Test"
+        working-directory: "./SuperHeroAPI.Test"
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET
@@ -58,4 +58,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/dotnet7:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/SuperHeroAPI:latest
