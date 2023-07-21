@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHeroAPI", "SuperHeroAPI\SuperHeroAPI.csproj", "{144EEA64-7396-4C0F-889D-4061864805B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHeroAPI", "SuperHeroAPI\SuperHeroAPI.csproj", "{144EEA64-7396-4C0F-889D-4061864805B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHeroAPI.Test", "SuperHeroAPI.Test\SuperHeroAPI.Test.csproj", "{31CA8F43-F7C9-4F9B-8CFA-18C4C73D4CAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{144EEA64-7396-4C0F-889D-4061864805B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{144EEA64-7396-4C0F-889D-4061864805B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{144EEA64-7396-4C0F-889D-4061864805B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31CA8F43-F7C9-4F9B-8CFA-18C4C73D4CAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31CA8F43-F7C9-4F9B-8CFA-18C4C73D4CAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31CA8F43-F7C9-4F9B-8CFA-18C4C73D4CAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31CA8F43-F7C9-4F9B-8CFA-18C4C73D4CAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

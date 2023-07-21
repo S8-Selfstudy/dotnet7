@@ -57,6 +57,7 @@
             hero.LastName = request.LastName;
             hero.Name = request.Name;
             hero.Place = request.Place;
+            hero.Active = request.Active;
 
             await _context.SaveChangesAsync();
 
