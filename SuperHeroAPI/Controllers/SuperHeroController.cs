@@ -16,7 +16,7 @@ namespace SuperHeroAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<SuperHero>>> GetAllHeroes()
+        public async Task<ActionResult<List<SuperHero?>>> GetAllHeroes()
         {
             return await _superHeroService.GetAllHeroes();
         }        

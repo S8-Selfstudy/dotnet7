@@ -40,5 +40,17 @@ namespace SuperHeroAPI.Test.IntegrationTests
             result.Should().NotBeNull();
             _superheroServiceMock.Verify(x => x.GetSingleHero(id), Times.Once());
         }
+
+        //Test get all superheroes
+        [Fact]
+        public async Task GetAllHeroesTest()
+        {
+            //Arrange
+            var result = await _superHeroTestController.GetAllHeroes().ConfigureAwait(false);
+
+            Assert.NotNull(result);
+            _superheroServiceMock.Verify(x => x.GetAllHeroes(), Times.Once());
+        }
+
     }
 }
