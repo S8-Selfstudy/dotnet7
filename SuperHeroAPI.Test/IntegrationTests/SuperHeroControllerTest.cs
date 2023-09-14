@@ -52,5 +52,20 @@ namespace SuperHeroAPI.Test.IntegrationTests
             _superheroServiceMock.Verify(x => x.GetAllHeroes(), Times.Once());
         }
 
+        //Test delete heroes
+        [Fact]
+        public async Task DeleteSuperheroTest()
+        {
+            //Arrange
+            var superheroId = _ifxture.Create<int>();
+
+            //Act
+            var result = await _superHeroTestController.DeleteHero(superheroId).ConfigureAwait(false);
+
+            //Assert
+            result.Should().NotBeNull();
+            _superheroServiceMock.Verify(x => x.DeleteHero(superheroId), Times.Once());
+        }
+
     }
 }
