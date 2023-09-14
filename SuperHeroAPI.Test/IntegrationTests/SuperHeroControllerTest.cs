@@ -1,17 +1,12 @@
 ﻿using AutoFixture;
+using Castle.Components.DictionaryAdapter.Xml;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using SuperHeroAPI.Controllers;
 using SuperHeroAPI.Models;
 using SuperHeroAPI.Services.SuperHeroService;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.Results;
+using Xunit.Abstractions;
 
 namespace SuperHeroAPI.Test.IntegrationTests
 {
@@ -41,20 +36,7 @@ namespace SuperHeroAPI.Test.IntegrationTests
 
             //Assert
             result.Should().NotBeNull();
-            _superheroServiceMock.Verify(x => x.GetSingleHero(id), Times.Once());
-        }
-
-        [Fact]
-        public async Task GetSingleHero()
-        {
-            //Arrange
-            var id = _ifxture.Create<int>();
-            SuperHero superhero = new SuperHero(id, "Name", "FirstName", "LastName", "Place", true);
-
-            //Act
-            var result = await _superHeroTestController.GetSingleHero(id);
-
-            //Assert
+            result.Should().BeOfType<ActionResult<SuperHero>>();
             _superheroServiceMock.Verify(x => x.GetSingleHero(id), Times.Once());
         }
 
@@ -66,6 +48,7 @@ namespace SuperHeroAPI.Test.IntegrationTests
             var result = await _superHeroTestController.GetAllHeroes().ConfigureAwait(false);
 
             Assert.NotNull(result);
+            result.Should().BeOfType<ActionResult<List<SuperHero>>>();
             _superheroServiceMock.Verify(x => x.GetAllHeroes(), Times.Once());
         }
 
@@ -81,6 +64,7 @@ namespace SuperHeroAPI.Test.IntegrationTests
 
             //Assert
             result.Should().NotBeNull();
+            result.Should().BeOfType<ActionResult<List<SuperHero>>>();
             _superheroServiceMock.Verify(x => x.DeleteHero(superheroId), Times.Once());
         }
 
@@ -94,17 +78,18 @@ namespace SuperHeroAPI.Test.IntegrationTests
 
             //Act
             var result = await _superHeroTestController.UpdateHero(id, superhero);
-            
+
 
             //Assert
             result.Should().NotBeNull();
+            result.Should().BeOfType<ActionResult<List<SuperHero>>>();
             _superheroServiceMock.Verify(x => x.UpdateHero(id, superhero), Times.Once());
 
         }
 
         //Test Add hero
         [Fact]
-        public async Task AddHero()
+        public async Task AddHeroShouldReturnListOfHeroes()
         {
             //Arrange
             SuperHero superhero = new SuperHero(_ifxture.Create<int>(), "Name", "FirstName", "LastName", "Place", true);
@@ -114,7 +99,9 @@ namespace SuperHeroAPI.Test.IntegrationTests
 
             //Assert
             result.Should().NotBeNull();
+            result.Should().BeOfType<ActionResult<List<SuperHero>>>();
             _superheroServiceMock.Verify(x => x.AddHero(superhero), Times.Once());
         }
+
     }
 }
