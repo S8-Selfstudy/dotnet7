@@ -17,7 +17,7 @@
             return await _context.SuperHeroes.ToListAsync();
         }
 
-        public async Task<List<SuperHero>> DeleteHero(int id)
+        public async Task<List<SuperHero>?> DeleteHero(int id)
         {
             var hero = await _context.SuperHeroes.FindAsync(id);
             if (hero == null)
@@ -36,7 +36,7 @@
             return heroes;
         }
 
-        public async Task<SuperHero> GetSingleHero(int id)
+        public async Task<SuperHero?> GetSingleHero(int id)
         {
             var hero = await _context.SuperHeroes.FindAsync(id);
             if (hero == null)
@@ -46,7 +46,7 @@
             return hero;
         }
 
-        public async Task<List<SuperHero>> UpdateHero(int id, SuperHero request)
+        public async Task<List<SuperHero>?> UpdateHero(int id, SuperHero request)
         {
             var hero = await _context.SuperHeroes.FindAsync(id);
             if (hero == null)

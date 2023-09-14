@@ -11,18 +11,18 @@ namespace SuperHeroAPI.Services.SuperHeroService
             _repository = repository;
         }
 
-        public async Task<List<SuperHero>> AddHero(SuperHero hero)
+        public async Task<List<SuperHero?>?> AddHero(SuperHero hero)
         {
             return await _repository.AddHero(hero);
         }
 
-        public async Task<List<SuperHero>?> DeleteHero(int id)
+        public async Task<List<SuperHero?>?> DeleteHero(int id)
         {
 
             return await _repository.DeleteHero(id);
         }
 
-        public async Task<List<SuperHero>> GetAllHeroes()
+        public async Task<List<SuperHero?>> GetAllHeroes()
         {
             return await _repository.GetAllHeroes();
         }
@@ -32,7 +32,7 @@ namespace SuperHeroAPI.Services.SuperHeroService
             return await _repository.GetSingleHero(id);
         }
 
-        public async Task<List<SuperHero>?> UpdateHero(int id, SuperHero request)
+        public async Task<List<SuperHero?>?> UpdateHero(int id, SuperHero request)
         {
             return await _repository.UpdateHero(id, request);
         }
